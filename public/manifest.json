@@ -3,9 +3,9 @@
   "name": "Costs App",
   "icons": [
     {
-      "src": "favicon.png",
+      "src": "favicon.ico",
       "sizes": "96x96",
-      "type": "image/png"
+      "type": "image/x-icon"
     }
   ],
   "start_url": ".",
