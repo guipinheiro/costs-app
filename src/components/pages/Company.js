@@ -1,9 +1,5 @@
 function Company() {
-	return (
-		<main>
-			<h1>Company</h1>
-		</main>
-	);
+	return <h1>Company</h1>;
 }
 
 export default Company;
