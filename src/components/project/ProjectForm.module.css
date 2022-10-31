@@ -1,0 +1,18 @@
+.formContainer {
+	font-size: 0.875em;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}
+
+.formContainer input[type="submit"] {
+	width: 30%;
+	margin: 2em auto 0 auto;
+	padding: 0.5em;
+	font-weight: bolder;
+}
+
+.formContainer input[type="submit"]:hover {
+	cursor: pointer;
+}
+
