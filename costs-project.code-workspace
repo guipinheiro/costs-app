@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"jshint.enable": false
+		"jshint.enable": false,
+		"prettier.printWidth": 80
 	}
 }

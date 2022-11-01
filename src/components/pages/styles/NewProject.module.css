@@ -6,12 +6,11 @@
 }
 
 .newProjectContainer h1 {
-	margin-bottom: 0.5em;
+	margin-bottom: 0.1em;
 }
 
 .newProjectContainer p {
 	color: #545454;
 	font-size: 0.75em;
-	padding-bottom: 0.5em;
 }
 
