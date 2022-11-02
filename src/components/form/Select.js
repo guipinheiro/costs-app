@@ -11,9 +11,13 @@ function Select({ text, name, options, handlerOnChange, value }) {
 			</label>
 			<select name={name} id={name}>
 				<option disabled>Selecione a categoria</option>
-				{/* {options.map((option, key) => {
-                    return <option key={key}></option>
-                })} */}
+				{options.map((option) => {
+					return (
+						<option value={option.id} key={option.id}>
+							{option.name}
+						</option>
+					);
+				})}
 			</select>
 		</div>
 	);
