@@ -1,6 +1,6 @@
 import styles from "./styles/Input.module.css";
 
-function Input({ type, text, name, placeholder, handlerOnChange, value }) {
+function Input({ type, text, name, placeholder, handleOnChange, value }) {
 	return (
 		<div className={styles.formControl}>
 			<label htmlFor={name}>
@@ -14,9 +14,10 @@ function Input({ type, text, name, placeholder, handlerOnChange, value }) {
 				placeholder={placeholder}
 				name={name}
 				id={name}
-				onChange={handlerOnChange}
+				onChange={handleOnChange}
 				value={value}
 				required
+				step={type === "number" ? "0.01" : ""}
 			/>
 		</div>
 	);

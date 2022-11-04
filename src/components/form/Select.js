@@ -1,6 +1,6 @@
 import styles from "./styles/Select.module.css";
 
-function Select({ text, name, options, handlerOnChange, value }) {
+function Select({ text, name, options, handleOnChange, value }) {
 	return (
 		<div className={styles.formControl}>
 			<label htmlFor={name}>
@@ -9,15 +9,22 @@ function Select({ text, name, options, handlerOnChange, value }) {
 				))}
 				:
 			</label>
-			<select name={name} id={name}>
-				<option disabled>Selecione a categoria</option>
-				{options.map((option) => {
-					return (
-						<option value={option.id} key={option.id}>
-							{option.name}
-						</option>
-					);
-				})}
+			<select
+				name={name}
+				id={name}
+				onChange={handleOnChange}
+				value={value || ""}
+				required
+			>
+				<option disabled value="" hidden>
+					Selecione a categoria
+				</option>
+				{options.map((option) => (
+					<option value={option.id} key={option.id}>
+						{option.name}
+					</option>
+				))}
+				;
 			</select>
 		</div>
 	);
