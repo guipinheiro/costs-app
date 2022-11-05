@@ -5,7 +5,7 @@ import styles from "./styles/NewProject.module.css";
 import ProjectForm from "../project/ProjectForm";
 
 function NewProject() {
-	const history = useNavigate();
+	const navigate = useNavigate();
 
 	// Send data from the new project into db.json and redirects to /projects
 	function createPost(project) {
@@ -22,8 +22,8 @@ function NewProject() {
 		})
 			.then((resp) => resp.json())
 			.then((data) => {
-				history("/projects", {
-					message: "Projeto criado com sucesso",
+				navigate("/projects", {
+					state: { message: "Projeto criado com sucesso" },
 				});
 			})
 			.catch((err) => {
@@ -32,11 +32,11 @@ function NewProject() {
 	}
 
 	return (
-		<section className={styles.newProjectContainer}>
+		<main className={styles.newProjectContainer}>
 			<h1>Criar Projeto</h1>
 			<p>*Crie seu projetos para depois adicionar os serviços</p>
 			<ProjectForm handleSubmit={createPost} btnText="Criar Projeto" />
-		</section>
+		</main>
 	);
 }
 

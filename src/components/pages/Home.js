@@ -4,14 +4,17 @@ import LinkButton from "../layout/LinkButton";
 
 function Home() {
 	return (
-		<section className={styles.homeContainer}>
+		<main className={styles.homeContainer}>
 			<h1>
 				Bem-vindo ao <span>Costs!</span>
 			</h1>
 			<p>Comece a gerenciar seus projetos agora mesmo.</p>
 			<LinkButton to="/newproject" text="Criar Projeto" />
-			<img src={savings} alt="Cartoon man riding a piggy bank while holding a coin with a dollar sign" />
-		</section>
+			<img
+				src={savings}
+				alt="Cartoon man riding a piggy bank while holding a coin with a dollar sign"
+			/>
+		</main>
 	);
 }
 
