@@ -10,9 +10,13 @@ import LinkButton from "../layout/LinkButton";
 import ProjectCard from "../project/ProjectCard";
 
 function Projects() {
-	// State to save projects
+	// General states to handle projects, loader and message
 	const [projects, setProjects] = useState([]);
 	const [removeLoader, setRemoveLoader] = useState(false);
+	const [projectMessage, setProjectMessage] = useState("");
+
+	// Projects api location
+	const projectsApi = "http://localhost:5000/projects";
 
 	// Message from useLocation
 	const location = useLocation();
@@ -23,7 +27,7 @@ function Projects() {
 
 	// useEffect to get data from db.json
 	useEffect(() => {
-		fetch("http://localhost:5000/projects", {
+		fetch(projectsApi, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
@@ -39,6 +43,26 @@ function Projects() {
 			});
 	}, []);
 
+	// Adding remove function on parent component of projectCard
+	function removeProject(id) {
+		fetch(`${projectsApi}/${id}`, {
+			// Back-end delete
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				// Front-end delete
+				setProjects(projects.filter((project) => project.id !== id));
+				setProjectMessage("Projeto removido com sucesso!");
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
+
 	return (
 		<main className={styles.projectContainer}>
 			<div className={styles.titleContainer}>
@@ -46,6 +70,7 @@ function Projects() {
 				<LinkButton to="/newproject" text="Criar Projeto" />
 			</div>
 			{message && <Message type="success" msg={message} />}
+			{projectMessage && <Message type="success" msg={projectMessage} />}
 			<Container customClass="start">
 				{projects.length > 0 &&
 					projects.map((project) => (
@@ -55,6 +80,7 @@ function Projects() {
 							name={project.projName}
 							budget={project.projBudget}
 							category={project.projType.name}
+							handleRemove={removeProject}
 						/>
 					))}
 				{!removeLoader && <Loading />}
