@@ -1,5 +1,28 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "projName": "teste",
+      "projBudget": "10000",
+      "projType": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 1
+    },
+    {
+      "projName": "segundo projeto",
+      "projBudget": "10000",
+      "projType": {
+        "id": "2",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 2
+    }
+  ],
   "categories": [
     {
       "id": 1,
