@@ -18,3 +18,5 @@ writeFile(`${name}.js`, content, (err) => {
 	console.log("File created!");
 });
 
+writeFile(`${name}.module.css`, "");
+
