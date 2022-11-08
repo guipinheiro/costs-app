@@ -5,12 +5,14 @@ import { useState, useEffect } from "react";
 
 import Message from "../layout/Message";
 import Container from "../layout/Container";
+import Loading from "../layout/Loading";
 import LinkButton from "../layout/LinkButton";
 import ProjectCard from "../project/ProjectCard";
 
 function Projects() {
 	// State to save projects
 	const [projects, setProjects] = useState([]);
+	const [removeLoader, setRemoveLoader] = useState(false);
 
 	// Message from useLocation
 	const location = useLocation();
@@ -30,7 +32,7 @@ function Projects() {
 			.then((res) => res.json())
 			.then((data) => {
 				setProjects(data);
-				//console.log(data);
+				setRemoveLoader(true);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -55,6 +57,10 @@ function Projects() {
 							category={project.projType.name}
 						/>
 					))}
+				{!removeLoader && <Loading />}
+				{removeLoader && projects.length === 0 && (
+					<p>Não há projetos cadastrados</p>
+				)}
 			</Container>
 		</main>
 	);
