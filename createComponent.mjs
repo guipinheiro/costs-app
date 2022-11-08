@@ -18,5 +18,7 @@ writeFile(`${name}.js`, content, (err) => {
 	console.log("File created!");
 });
 
-writeFile(`${name}.module.css`, "");
+writeFile(`${name}.module.css`, "", (err) => {
+	if (err) throw err;
+});
 
