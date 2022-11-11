@@ -17,5 +17,7 @@
 .column {
 	flex-direction: column;
 	justify-content: flex-start;
+
+	width: 93vw;
 }
 
