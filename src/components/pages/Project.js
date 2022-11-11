@@ -39,6 +39,8 @@ function Project() {
 	}
 
 	function editPost(project) {
+		setMessage("");
+
 		// Budget Validation
 		if (project.projBudget < project.cost) {
 			setMessage("Orçamento menor que custo total do projeto!");
