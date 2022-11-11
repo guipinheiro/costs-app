@@ -1,5 +1,5 @@
 .container {
-	width: 1200px;
+	width: 93vw;
 	display: flex;
 	justify-content: space-between;
 	margin: 0 auto;
@@ -12,12 +12,12 @@
 
 .start {
 	justify-content: flex-start;
+	width: 86vw;
 }
 
 .column {
 	flex-direction: column;
 	justify-content: flex-start;
-
-	width: 93vw;
+	width: 86vw;
 }
 

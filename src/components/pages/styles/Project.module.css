@@ -32,11 +32,11 @@
 .btn {
 	background-color: #222;
 	color: white;
-	padding: 0.7em 1em;
+	padding: 0.5em;
 	text-decoration: none;
 	transition: 0.5s;
 	font-weight: bold;
-	max-height: 40px;
+	max-height: 33px;
 	border: none;
 	cursor: pointer;
 	width: 120px;
