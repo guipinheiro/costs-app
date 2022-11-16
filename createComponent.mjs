@@ -5,7 +5,7 @@ const argv = minimist(process.argv.slice(2)); //getting just the first argument 
 
 const name = argv._[0];
 
-const content = `import styles from ""
+const content = `import styles from "./styles/${name}.module.css"
 
 function ${name}() {
     return;
