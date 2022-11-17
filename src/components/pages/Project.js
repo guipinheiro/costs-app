@@ -1,5 +1,6 @@
 import styles from "./styles/Project.module.css";
 
+import { parse, v4 as uuidv4 } from "uuid";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -7,6 +8,7 @@ import Loading from "../layout/Loading";
 import Container from "../layout/Container";
 import ProjectForm from "../project/ProjectForm";
 import Message from "../layout/Message";
+import ServiceForm from "../services/ServiceForm";
 
 function Project() {
 	const { id } = useParams();
@@ -33,6 +35,47 @@ function Project() {
 				throw err;
 			});
 	}, [id]);
+
+	// Adding services
+	function createService(project) {
+		setMessage("");
+		setType("");
+
+		// Getting last Service
+		const lastService = project.services[project.services.length - 1];
+		lastService.id = uuidv4();
+
+		const lastServiceCost = lastService.cost;
+
+		const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost);
+
+		// Max value validation
+
+		if (newCost > parseFloat(project.projBudget)) {
+			setMessage("Orçamento ultrapassado! Revise o valor do serviço");
+			setType("error");
+			project.services.pop();
+			return false;
+		}
+
+		// Add service cost to total cost
+		project.cost = newCost;
+
+		// update Projects on db.json
+		fetch(`${projectsApi}${id}`, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(project),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				// exibir os serviços
+				console.log(data);
+			})
+			.catch((err) => console.log(err));
+	}
 
 	// For editing the form
 	function toggleProjectForm() {
@@ -77,6 +120,8 @@ function Project() {
 				<div className={styles.projectDetails}>
 					<Container customClass="column">
 						{message && <Message type={type} msg={message} />}
+
+						{/* Project details container */}
 						<div className={styles.detailsContainer}>
 							<h1>{project.projName}</h1>
 							<button onClick={toggleProjectForm} className={styles.btn}>
@@ -106,15 +151,25 @@ function Project() {
 								</div>
 							)}
 						</div>
+
+						{/* Services container */}
 						<div className={styles.serviceFormContainer}>
 							<h2>Adicione um serviço</h2>
 							<button onClick={toggleServiceForm} className={styles.btn}>
 								{!showServiceForm ? "Novo serviço" : "Fechar"}
 							</button>
 							<div className={styles.projectInfo}>
-								{showServiceForm && <div>Formulário do serviço</div>}
+								{showServiceForm && (
+									<ServiceForm
+										btnText="Adicionar"
+										handleSubmit={createService}
+										projectData={project}
+									/>
+								)}
 							</div>
 						</div>
+
+						{/* Services details */}
 						<h2>Serviços</h2>
 						<Container customClass="start">
 							<p>Itens do serviço</p>

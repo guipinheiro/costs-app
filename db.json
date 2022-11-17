@@ -7,8 +7,21 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 0,
-      "service": [],
+      "cost": 10000,
+      "services": [
+        {
+          "name": "Serviço teste",
+          "cost": "5000",
+          "Description": "teste de serviço",
+          "id": "2975571b-2165-4b2e-ad62-3917527ad2f0"
+        },
+        {
+          "name": "Serviço teste 2",
+          "cost": "5000",
+          "Description": "teste de serviço",
+          "id": "1d9d2095-5e07-4787-acd2-a68f697bd2e1"
+        }
+      ],
       "id": 1
     },
     {
@@ -19,7 +32,7 @@
         "name": "Desenvolvimento"
       },
       "cost": 0,
-      "service": [],
+      "services": [],
       "id": 2
     },
     {
@@ -30,7 +43,7 @@
         "name": "Design"
       },
       "cost": 0,
-      "service": [],
+      "services": [],
       "id": 3
     },
     {
@@ -41,7 +54,7 @@
         "name": "Planejamento"
       },
       "cost": 0,
-      "service": [],
+      "services": [],
       "id": 4
     },
     {
@@ -52,7 +65,7 @@
         "name": "Desenvolvimento"
       },
       "cost": 0,
-      "service": [],
+      "services": [],
       "id": 5
     }
   ],
