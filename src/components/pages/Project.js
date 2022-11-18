@@ -58,7 +58,7 @@ function Project() {
 			setMessage("Orçamento ultrapassado! Revise o valor do serviço");
 			setType("error");
 			project.services.pop();
-			return false;
+			return;
 		}
 
 		// Add service cost to total cost
@@ -80,15 +80,40 @@ function Project() {
 			.catch((err) => console.log(err));
 	}
 
-	function removeService() {}
+	function removeService(id, cost) {
+		setMessage("");
+		const servicesUpdated = project.services.filter((service) => service.id !== id);
+		const projectUpdated = project;
+
+		projectUpdated.services = servicesUpdated;
+		projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost);
+
+		fetch(`${projectsApi}${projectUpdated.id}`, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(projectUpdated),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				setProject(projectUpdated);
+				setServices(servicesUpdated);
+				setMessage("Serviço removido com sucesso");
+				setType("success");
+			})
+			.catch((err) => console.log(err));
+	}
 
 	// For editing the form
 	function toggleProjectForm() {
 		setShowProjectForm(!showProjectForm);
+		setMessage("");
 	}
 
 	function toggleServiceForm() {
 		setShowServiceForm(!showServiceForm);
+		setMessage("");
 	}
 
 	function editPost(project) {

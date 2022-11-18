@@ -1,114 +1,15 @@
 {
   "projects": [
     {
-      "projName": "asdasd1ewqe",
-      "projBudget": "10021",
+      "projName": "Teste",
+      "projBudget": "5000",
       "projType": {
-        "id": "4",
-        "name": "Planejamento"
+        "id": "1",
+        "name": "Infra"
       },
-      "cost": 10015,
-      "services": [
-        {
-          "name": "Serviço teste",
-          "cost": "5000",
-          "description": "teste de serviço",
-          "id": "2975571b-2165-4b2e-ad62-3917527ad2f0"
-        },
-        {
-          "name": "Serviço teste 2",
-          "cost": "5000",
-          "description": "teste de serviço",
-          "id": "1d9d2095-5e07-4787-acd2-a68f697bd2e1"
-        },
-        {
-          "name": "teste 3",
-          "cost": "1",
-          "description": "testing. attention please",
-          "id": "bb772350-217a-470b-b272-5e2a38ea383d"
-        },
-        {
-          "name": "teste 3",
-          "cost": "1",
-          "description": "testing. attention please",
-          "id": "bb772350-217a-470b-b272-5e2a38ea383d"
-        },
-        {
-          "name": "teste 3",
-          "cost": "11",
-          "description": "testing. attention please",
-          "id": "2f6605df-d4e2-4328-83a7-863762c01745"
-        },
-        {
-          "name": "teste 3",
-          "cost": "0",
-          "description": "testing. attention please",
-          "id": "bee185f6-3f0d-43b9-86ff-d4948c1e2b2b"
-        },
-        {
-          "name": "teste 3",
-          "cost": "0",
-          "description": "testing. attention please",
-          "id": "bee185f6-3f0d-43b9-86ff-d4948c1e2b2b"
-        },
-        {
-          "name": "teste",
-          "cost": "1",
-          "description": "teste",
-          "id": "8cf25a7b-1bcb-4664-9b5e-95a1a3370e58"
-        },
-        {
-          "name": "teste 123213",
-          "cost": "1",
-          "description": "qwrqewqeweq",
-          "id": "7aca3cd7-06dc-4ae6-b7b8-93f096952a03"
-        }
-      ],
+      "cost": 0,
+      "services": [],
       "id": 1
-    },
-    {
-      "projName": "12",
-      "projBudget": "123",
-      "projType": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 2
-    },
-    {
-      "projName": "321",
-      "projBudget": "321",
-      "projType": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 3
-    },
-    {
-      "projName": "dddddd",
-      "projBudget": "34555",
-      "projType": {
-        "id": "4",
-        "name": "Planejamento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 4
-    },
-    {
-      "projName": "dsa",
-      "projBudget": "123",
-      "projType": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 5
     }
   ],
   "categories": [

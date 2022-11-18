@@ -45,6 +45,7 @@ function Projects() {
 
 	// Adding remove function on parent component of projectCard
 	function removeProject(id) {
+		setProjectMessage("");
 		fetch(`${projectsApi}/${id}`, {
 			// Back-end delete
 			method: "DELETE",
